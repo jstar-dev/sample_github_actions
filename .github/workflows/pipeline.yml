@@ -47,6 +47,7 @@ jobs:
         with:
           files: samplefile.txt
           dest: result.zip
+     # In order to publish the created Zip as in artifact section, we need to run the upload-artifact@v1    
       - uses: actions/upload-artifact@v1
         with:
           name: my-artifact
