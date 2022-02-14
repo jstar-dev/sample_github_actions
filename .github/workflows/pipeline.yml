@@ -35,7 +35,7 @@ jobs:
           echo Add other actions to build,
           REPO_NAME="${{ github.event.repository.name }}"
           BUILD="${{ github.run_number }}"
-          BRANCH="${{ github.github_ref_name }}"
+          BRANCH="${{ github.github_ref }}"
           Commit_id_as_env="${{ github.github_sha }}"
           Commit_id=$(git rev-parse --short "$GITHUB_SHA")
           zip_file_name="${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip"
