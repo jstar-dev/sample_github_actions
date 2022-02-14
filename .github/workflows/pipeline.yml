@@ -35,13 +35,15 @@ jobs:
           echo Add other actions to build,
           REPO_NAME="${{ github.event.repository.name }}"
           BUILD="${{ github.run_number }}"
-          BRANCH="${{ github.ref }}"
+          BRANCH="${{ github.GITHUB_REF_NAME }}"
+          Commit_id_as_env="${{ github.GITHUB_SHA }}"
           Commit_id=$(git rev-parse --short "$GITHUB_SHA")
-          zip_file_name=${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip
+          zip_file_name="${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip"
           echo $REPO_NAME
           echo $BUILD
           echo $BRANCH
           echo $Commit_id
+          echo $Commit_id_as_env
           echo $zip_file_name
        
      # Used the action Easy Zip file. Refer https://github.com/marketplace/actions/easy-zip-files  
