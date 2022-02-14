@@ -37,11 +37,12 @@ jobs:
           BUILD="${{ github.run_number }}"
           BRANCH="${{ github.ref }}"
           Commit_id=$(git rev-parse --short "$GITHUB_SHA")
+          zip_file_name=${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip
           echo $REPO_NAME
           echo $BUILD
           echo $BRANCH
           echo $Commit_id
-          zip_file_name=${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip
+          echo $zip_file_name
        
      # Used the action Easy Zip file. Refer https://github.com/marketplace/actions/easy-zip-files  
       - uses: papeloto/action-zip@v1
