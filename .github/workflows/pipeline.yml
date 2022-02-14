@@ -52,5 +52,5 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: my-artifact
-          path: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.$GITHUB_SHA.zip    
+          path: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip    
           
