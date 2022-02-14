@@ -36,7 +36,10 @@ jobs:
           REPO_NAME="${{ github.event.repository.name }}"
           BUILD="${{ github.run_number }}"
           BRANCH="${{ github.ref }}"
+          Commit_id=$(git rev-parse --short "$GITHUB_SHA")
           echo $REPO_NAME
-          echo $PROJECT_NAME
           echo $BUILD
           echo $BRANCH
+          echo $Commit_id
+          
+          
