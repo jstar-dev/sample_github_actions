@@ -41,5 +41,11 @@ jobs:
           echo $BUILD
           echo $BRANCH
           echo $Commit_id
+       
+     # Used the action Easy Zip file. Refer https://github.com/marketplace/actions/easy-zip-files  
+      - uses: papeloto/action-zip@v1
+        with:
+          files: samplefile.txt
+          dest: result.zip
           
           
