@@ -35,10 +35,10 @@ jobs:
           echo Add other actions to build,
           REPO_NAME="${{ github.event.repository.name }}"
           BUILD="${{ github.run_number }}"
-          BRANCH="${{ github.ref.name }}"
+          BRANCH="${{ github.ref_name }}"
           Commit_id_as_env="${{ github.sha }}"
           Commit_id=$(git rev-parse --short "$GITHUB_SHA")
-          zip_file_name="${{ github.event.repository.name }}.${{ github.GITHUB_REF_NAME }}.${{ github.GITHUB_SHA }}.zip"
+          zip_file_name="${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip"
           echo $REPO_NAME
           echo $BUILD
           echo $BRANCH
@@ -50,10 +50,11 @@ jobs:
       - uses: papeloto/action-zip@v1
         with:
           files: samplefile.txt
-          dest: result.zip
+          dest: "${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip"
      # In order to publish the created Zip as in artifact section, we need to run the upload-artifact@v1    
       - uses: actions/upload-artifact@v1
         with:
           name: my-artifact
-          path: ${{ github.workspace }}/$zip_file_name
+          path: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip"
+
           
