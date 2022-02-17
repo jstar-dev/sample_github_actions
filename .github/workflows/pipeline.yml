@@ -54,7 +54,7 @@ jobs:
      # In order to publish the created Zip as in artifact section, we need to run the upload-artifact@v1    
       - uses: actions/upload-artifact@v1
         with:
-          name: my-artifact
+          name: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip
           path: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip
 
           
