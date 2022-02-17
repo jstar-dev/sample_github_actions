@@ -46,15 +46,20 @@ jobs:
           echo $Commit_id_as_env
           echo $zip_file_name
        
-     # Used the action Easy Zip file. Refer https://github.com/marketplace/actions/easy-zip-files  
-      - uses: papeloto/action-zip@v1
-        with:
-          files: samplefile.txt
-          dest: "${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip"
-     # In order to publish the created Zip as in artifact section, we need to run the upload-artifact@v1    
+#      # Used the action Easy Zip file. Refer https://github.com/marketplace/actions/easy-zip-files  
+#       - uses: papeloto/action-zip@v1
+#         with:
+#           files: samplefile.txt
+#           dest: "${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip"
+#      # In order to publish the created Zip as in artifact section, we need to run the upload-artifact@v1    
+#       - uses: actions/upload-artifact@v1
+#         with:
+#           name: ${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip
+#           path: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip
+
       - uses: actions/upload-artifact@v1
         with:
           name: ${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip
-          path: ${{ github.workspace }}/${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.sha }}.zip
+          path: samplefile.txt
 
-          
+              
