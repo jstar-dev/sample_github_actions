@@ -69,4 +69,4 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: jstar-dev/Jenkins-Learning
           event-type: event-demo
-          client-payload: '{"ref": "master", "sha": "${{ github.sha }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
