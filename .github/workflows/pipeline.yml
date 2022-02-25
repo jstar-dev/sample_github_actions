@@ -63,3 +63,10 @@ jobs:
           path: samplefile.txt
 
               
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.1.3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: GuillaumeFalourd/useful-actions
+          event-type: event-demo
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
