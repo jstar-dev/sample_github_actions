@@ -67,6 +67,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1.1.3
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
-          repository: Jenkins-Learning/useful-actions
+          repository: Jenkins-Learning
           event-type: event-demo
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
