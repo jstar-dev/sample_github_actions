@@ -32,7 +32,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build....,
+          echo Add other actions to build.......,
           REPO_NAME="${{ github.event.repository.name }}"
           BUILD="${{ github.run_number }}"
           BRANCH="${{ github.ref_name }}"
